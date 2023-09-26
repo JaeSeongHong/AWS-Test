@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.sesco.mapper.HtSurveyMapper">
+
+	<select id="preSurveyList" resultType="com.smhrd.sesco.domain.HtSurveyDetail">
+		SELECT *
+		  FROM ht_survey_detail
+		 WHERE hsv_seq = #{hsvSeq}
+		   AND hsvd_seq NOT IN (
+									SELECT B.hsvd_seq
+									  FROM t_survey A
+								INNER JOIN t_survey_do B ON A.sv_seq = B.sv_seq
+									 WHERE A.kid_seq = #{kidSeq}
+								);
+	</select>
+
+</mapper>
