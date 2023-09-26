@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smhrd.sesco.domain.Member;
 import com.smhrd.sesco.service.MemberService;
 
-import io.jsonwebtoken.Jwts;
-
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class MemberController {
